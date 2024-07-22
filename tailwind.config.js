@@ -4,7 +4,17 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        custom: ['Primary', 'sans-serif'],
+        secondary: ['Secondary'],
+      },
+      fontSize: {
+        '5xl': '3.2rem',
+      },
+      colors: {
+        primary: '#f7f7f7',
+        secondary: '#181818',
+      },
+      screens: {
+        'max-md': { max: '768px' },
       },
     },
   },

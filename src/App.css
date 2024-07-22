@@ -1,11 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: 'Primary';
-  src: url('./fonts/PPRader-Regular.otf') format('OpenType');
+  src: url('./fonts/PPMori-Regular.otf') format('OpenType');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@font-face {
+  font-family: 'Secondary';
+  src: url('./fonts/PPEditorialNew-Regular.otf') format('OpenType');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --primary: '#f7f7f7';
+  --secondary: '#181818';
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  font-size: calc(100vw / 1920 * 10);
+}
+
+body {
+  font-family: 'Primary', sans-serif;
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+h1 {
+  font-size: 13rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 9rem;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 4.8rem;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 3.2rem;
+  text-transform: uppercase;
+}
+
+p,
+li {
+  font-size: 2.4rem;
+}
+
+span {
+  font-size: 1.6rem;
+}
+
+/*? -----> Nav Component */
+
+/*? -----> Grid View */
+.works_grid_item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 1.6rem;
+  grid-row-gap: 1.6rem;
+  grid-template-areas:
+    'grid-img grid-info'
+    'grid-title .';
+  margin-bottom: 12.8rem;
+}
+
+.--item-left {
+  grid-template-areas:
+    'grid-info grid-img'
+    '. grid-title';
+}
+
+.works_grid_item_image {
+  grid-area: grid-img;
+  width: 96rem;
+  height: 64rem;
+  object-fit: cover;
+}
+
+.works_grid_item_info {
+  grid-area: grid-info;
+}
+
+.works_grid_item_title {
+  grid-area: grid-title;
+}
+
+@media screen and (min-width: 768px) {
+  .works_grid_item:nth-child(2) .works_grid_item_image {
+    width: 90rem;
+    height: 96rem;
+  }
+  .works_grid_item:nth-child(3) .works_grid_item_image {
+    width: 120rem;
+    height: 90rem;
+  }
+  .works_grid_item:nth-child(4) .works_grid_item_image {
+    width: 140rem;
+    height: 90rem;
+  }
+}
+
+/*? -----> Index View */
+.works_index_item:last-child {
+  margin-bottom: 0;
+}
+
+/*? -----> Responsive */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: calc(100vw / 768 * 10);
+  }
+  h1 {
+    font-size: 7rem;
+    text-transform: uppercase;
+  }
+  h2 {
+    font-size: 4.8rem;
+    text-transform: uppercase;
+  }
+  h3 {
+    font-size: 3.2rem;
+    text-transform: uppercase;
+  }
+  h4 {
+    font-size: 2.4rem;
+    text-transform: uppercase;
+  }
+  p,
+  li {
+    font-size: 2.4rem;
+  }
+  span {
+    font-size: 1.6rem;
+  }
+
+  .works_grid_item,
+  .works_grid_item .--item-left {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'grid-img'
+      'grid-title'
+      'grid-info';
+  }
+}
